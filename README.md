@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# User Management System
 
-## Getting Started
+A full-stack application built with Next.js (frontend) and Go (backend) for managing users. This project includes features like adding, editing, deleting, and viewing users, along with a responsive UI powered by Material-UI (MUI).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- **View Users**: Display a list of users in a table with pagination.
+- **Add User**: Add a new user with name and email.
+- **Edit User**: Update an existing user's details.
+- **Delete User**: Remove a user from the system.
+- **Responsive UI**: Built with Material-UI for a clean and responsive design.
+- **API Integration**: Connects to a backend API for CRUD operations.
+
+---
+
+## Technologies Used
+
+- **Frontend**:
+  - Next.js (React framework)
+  - Material-UI (MUI) for UI components
+  - Axios for API requests
+- **Backend**:
+  - Go (Golang)
+  - SQLite for database
+  - Gorilla Mux for routing
+- **Other Tools**:
+  - Swagger for API documentation
+  - TypeScript for type safety
+
+---
+
+## Project Structure
+
+### Frontend (Next.js)
+
+```
+src/
+├── app/
+│   ├── layout.tsx             # Main layout with theme and navbar
+│   ├── page.tsx               # Home page with navigation buttons
+│   ├── services/
+│   │   └── userService.tsx    # API service for user operations
+│   ├── users/
+│   │   ├── page.tsx           # User list page
+│   │   ├── [id]/
+│   │   │   └── page.tsx       # Edit user page
+│   │   ├── add-user/
+│   │   │   └── page.tsx       # Add user page
+│   │   └── components/
+│   │       ├── Navbar.tsx     # Navigation bar
+│   │       ├── UsersList.tsx  # Table to display users
+│   │       ├── ConfirmDialog.tsx # Confirmation dialog for delete
+│   │       ├── NewUserDialog.tsx # Dialog for adding a new user
+│   │       └── Notification.tsx  # Snackbar for notifications
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Navigate to the `frontend` directory:
+   ```bash
+   cd src/app
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open your browser and visit [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+### Home Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Go to User List**: Navigates to the user list page.
+- **Add New User**: Opens a form to add a new user.
+- **Edit User**: Prompts for a user ID and navigates to the edit page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### User List Page
+
+- Displays a table of users with options to edit or delete.
+- **Add New User**: Opens a dialog to add a new user.
+
+### Add User Page
+
+- A form to add a new user with name and email.
+
+### Edit User Page
+
+- A form to edit an existing user's details.
+
+---
+
+## Components
+
+### Navbar.tsx
+
+- A navigation bar that appears at the top of every page.
+
+### UsersList.tsx
+
+- A table component that displays the list of users with edit and delete buttons.
+
+### ConfirmDialog.tsx
+
+- A dialog that confirms the deletion of a user.
+
+### NewUserDialog.tsx
+
+- A dialog for adding a new user.
+
+### Notification.tsx
+
+- A snackbar component for displaying success or error messages.
+
+---
+
+## API Service
+
+The `userService.tsx` file contains functions for interacting with the backend API:
+
+- `fetchUsers()`: Fetches the list of users.
+- `fetchUserById(id)`: Fetches a single user by ID.
+- `createUser(userData)`: Creates a new user.
+- `updateUser(id, userData)`: Updates an existing user.
+- `deleteUser(id)`: Deletes a user.
+
+---
+
+## Acknowledgments
+
+- Material-UI for the UI components.
+- Next.js for the frontend framework.
