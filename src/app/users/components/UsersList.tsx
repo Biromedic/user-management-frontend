@@ -48,12 +48,35 @@ const UsersList: React.FC<UsersListProps> = ({ users, onEdit, onDelete }) => {
     return (
         <Box style={{ height: 400, width: '100%' }}>
             <DataGrid 
-                rows={validRows} 
-                columns={columns} 
-                pagination 
-                pageSizeOptions={[5]}
-                getRowId={(row) => row.id}
-                initialState={{ pagination: { paginationModel: { pageSize: 5 }}}} />
+            rows={validRows} 
+            columns={columns} 
+            pagination 
+            pageSizeOptions={[5]}
+            getRowId={(row) => row.id}
+            initialState={{ pagination: { paginationModel: { pageSize: 5 }}}}
+            sx={{
+                '& .MuiDataGrid-cell': {
+                whiteSpace: 'normal',
+                wordWrap: 'break-word',
+                },
+                '& .MuiDataGrid-columnHeader': {
+                whiteSpace: 'normal',
+                wordWrap: 'break-word',
+                },
+                '@media (max-width: 600px)': {
+                '& .MuiDataGrid-columnHeaderTitle': {
+                    fontSize: '0.8rem',
+                },
+                '& .MuiDataGrid-cell': {
+                    fontSize: '0.7rem',
+                },
+                '& .MuiButton-root': {
+                    fontSize: '0.7rem',
+                    padding: '4px 8px',
+                },
+                },
+            }}
+            />
         </Box>
     );
 };

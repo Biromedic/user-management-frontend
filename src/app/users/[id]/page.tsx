@@ -59,7 +59,7 @@ export default function UserEdit() {
     }
 
     return (
-        <Box sx={{ width: 400, margin: '20px auto' }}>
+        <Box sx={{ width: '90%', maxWidth: 400, margin: '20px auto', padding: 2 }}>
             <Typography variant="h5" gutterBottom>
                 Edit User (ID: {userId})
             </Typography>
